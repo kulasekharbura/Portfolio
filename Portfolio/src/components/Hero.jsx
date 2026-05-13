@@ -9,7 +9,6 @@ const Hero = () => {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    // Animate everything inside contentRef (including the HI animation)
     animate(contentRef.current.children, {
       translateY: [40, 0],
       opacity: [0, 1],
@@ -24,13 +23,15 @@ const Hero = () => {
       <MorphingShape />
 
       <div ref={contentRef} className="relative z-10">
-        {/* 1. The Self-Drawing Greeting */}
+        {/* Self Drawing Greeting */}
         <div style={{ opacity: 0 }} className="mb-2">
           <HiAnimation />
         </div>
+
         <p style={{ opacity: 0 }} className="hero-subtitle">
           Welcome to my portfolio
         </p>
+
         <h1 style={{ opacity: 0 }} className="hero-title">
           I'm <span className="hero-title-highlight">{name}</span>
         </h1>
@@ -45,7 +46,12 @@ const Hero = () => {
         </p>
 
         <div style={{ opacity: 0 }}>
-          <a href={`mailto:${email}`} className="btn-primary">
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
             Contact Me
           </a>
         </div>
